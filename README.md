@@ -3,6 +3,8 @@
 Released under CC-BY-SA 4.0 license  
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](http://creativecommons.org/licenses/by-sa/4.0/)
 
+### Project status
+At this time, the project is waiting to be prototyped
 
 ### Project description 
 An easy and cheap board to prototypate with two dual channel 16 bit A/D and D/A converters.  
@@ -15,10 +17,7 @@ Makes use of:
 * 2 100nF 0603 capacitors
 * 2 100nF 0805 capacitors
 * 2 10uF  1206 capacitors
-* 2 4k7   0805 resistors
-
-### Current state of the project
-At this time, the project is not tested yet.   
+* 2 4k7   0805 resistors  
 
 But look how cute it is  
 ![Board 3D View](ADC-DAC-16bit.png)
