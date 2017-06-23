@@ -4,7 +4,7 @@ Released under CC-BY-SA 4.0 license
 [![License: CC BY-SA 4.0](https://img.shields.io/badge/License-CC%20BY--SA%204.0-lightgrey.svg)](http://creativecommons.org/licenses/by-sa/4.0/)
 
 ### Project status
-At this time, the project is waiting to be prototyped
+At this time, the board is mounted and waiting to be tested 
 
 ### Project description 
 An easy and cheap board to prototypate with two dual channel 16 bit A/D and D/A converters.  
