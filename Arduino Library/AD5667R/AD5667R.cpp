@@ -3,7 +3,12 @@
 #define AD5667R_MASK_BYTE_SELECTION 0x40
 
 
-static uint8_t AD5667R::sendCommand(uint8_t selection, Command command, Dac dac, uint8_t high, uint8_t low, uint64_t timeout){
+AD5667R::AD5667R(uint8_t i2cAddress):
+  address(i2cAddress)
+{  
+}
+
+uint8_t AD5667R::sendCommand(uint8_t selection, Command command, Dac dac, uint8_t high, uint8_t low, uint64_t timeout){
   uint8_t header = 0;
   if (selection){
     header |= AD5667R_MASK_BYTE_SELECTION;
@@ -13,7 +18,7 @@ static uint8_t AD5667R::sendCommand(uint8_t selection, Command command, Dac dac,
 
   header |= static_cast<uint8_t>(dac);
 
-  Wire.beginTransmission(0x0F);
+  Wire.beginTransmission(address);
   Wire.write(header);
   Wire.write(high);
   Wire.write(low);

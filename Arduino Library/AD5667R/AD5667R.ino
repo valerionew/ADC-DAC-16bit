@@ -2,27 +2,33 @@
 
 #include "AD5667R.h"
 
+AD5667R dac; //use default i2c address
+//AD5667R dac(0xAA); //use 0xAA as i2c address
+
 void setup() {
   Serial.begin(115200);
   Wire.begin(); //master
   Serial.println("start");
 
-  uint8_t error = AD5667R::setReference(AD5667R::Dac::BOTH, AD5667R::Reference::_INTERNAL);
+
+
+  uint8_t error = dac.setReference(Dac::BOTH, Reference::_EXTERNAL);
   if ( !error )
     Serial.println("set internal reference");
   else
     Serial.println("error setting reference adc");
 
-  error = AD5667R::setLdac(AD5667R::Dac::BOTH, AD5667R::Ldac::DISABLE);
+  error = dac.setLdac(Dac::BOTH, Ldac::DISABLE);
   if ( !error )
     Serial.println("disaled ldac");
   else
     Serial.println("error setting ldac");  
+
 }
 
 void loop() {
   uint8_t error;
-  error = AD5667R::setOutput(AD5667R::Dac::BOTH, 0xFFFF);
+  error = dac.setOutput(Dac::BOTH, 0xFFFF);
   if ( !error )
     Serial.println("output set 0xFFFF");
   else
@@ -30,7 +36,7 @@ void loop() {
   
   delay(5000);
 
-  error = AD5667R::setOutput(AD5667R::Dac::BOTH, 0x00);
+  error = dac.setOutput(Dac::BOTH, 0x00);
   if ( !error )
     Serial.println("output set 0x00");
   else
@@ -38,7 +44,7 @@ void loop() {
 
   delay(5000);
 
-  error = AD5667R::setOutput(AD5667R::Dac::BOTH, 0x00FF);
+  error = dac.setOutput(Dac::BOTH, 0x00FF);
   if ( !error )
     Serial.println("output set 0x00FF");
   else
